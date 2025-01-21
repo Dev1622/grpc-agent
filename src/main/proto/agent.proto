@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_outer_classname="AgentProto";
+option java_package = "com.project.grpc";
+
+import "google/protobuf/empty.proto";
+
+message Agent {
+    int64 id = 1;
+    string name = 2;
+    int32 age = 3;
+    string skill = 4;
+}
+
+message AgentRequest {
+    int64 id = 1;
+}
+
+message AgentResponse{
+    string message = 1;
+}
+
+service AgentService {
+    rpc GetAllAgents(google.protobuf.Empty) returns (stream Agent);
+    rpc GetAgentById(AgentRequest) returns (Agent);
+    rpc CreateAgent(Agent) returns (AgentResponse);
+    rpc DeleteAgent(AgentRequest) returns (AgentResponse);
+    rpc UpdateAgent(Agent) returns (AgentResponse);
+
+}
