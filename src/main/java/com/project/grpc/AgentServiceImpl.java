@@ -1,7 +1,6 @@
 package com.project.grpc;
 import com.google.protobuf.Empty;
 import io.grpc.Status;
-//
 import io.grpc.StatusRuntimeException;
 import io.quarkus.grpc.GrpcService;
 import io.smallrye.common.annotation.Blocking;
